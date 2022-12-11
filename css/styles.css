@@ -16,6 +16,7 @@
     --primary-text-color: #757575;
     --title-text-color: #212121;
     --accent-color: #2196F3;
+    --hero-btn-hover: #188CE8;
     --secondary-color: #FFFFFF;
     --back-color: #F5F5F5;
     --back-hero: #2F303A;
@@ -251,8 +252,7 @@ ul {
 }
 .hero .btn:hover,
 .hero .btn:focus {
-    background-color: var(--secondary-color);
-    color: var(--accent-color);
+    background-color: var(--hero-btn-hover);
 }
 /* main */
 .section {
@@ -531,22 +531,14 @@ img {
     cursor: pointer;
 }
 
-.box-first {
-    display: inline-block;
-    width: 231px;
-}
-
 .box-second {
-    display: inline-block;
-    width: 206px;
-    margin-left: 70px;
+    margin-left: 93px;
 }
 
 .box {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    
 }
 
 /* Портфоліо */

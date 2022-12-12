@@ -25,6 +25,12 @@
     --icon-color: #AFB1B8;
     --secondary-text-foot: rgba(255, 255, 255, 0.6);
     --footer-back-link: rgba(255, 255, 255, 0.1);
+    --background: rgba(47, 48, 58, 0.8);
+    --overlay: rgba(33, 150, 243, 0.9);
+}
+
+:root {
+    --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Стили для обнуления верхних отступов у элементов */
 
@@ -141,6 +147,8 @@ ul {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
+
+    transition: color 250ms var(--time-function);
 }
 
 .site-nav .link:hover,
@@ -150,7 +158,25 @@ ul {
 
 .site-nav .link.current {
     color: var(--accent-color);
+    /* position: relative; */
 }
+
+.link.current::after {
+    /* position: absolute;
+    bottom: 0; */
+    position: relative;
+    display: block;
+    content: '';
+    top: 32px;
+    
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    
+    background-color: var(--accent-color);
+}
+
+
 
 .auth-nav {
     display: flex;
@@ -171,7 +197,8 @@ ul {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration: none;
-    
+
+    transition: color 250ms var(--time-function);
 }
 
 .auth-nav .link:hover,
@@ -235,21 +262,24 @@ ul {
 }
 
 .btn {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
+    display: inline-block;
+    padding: 10px 24px;
+    border: transparent;
+    border-radius: 4px;
+    min-width: 200px;
 
     font-weight: 700;
     font-size: 16px;
     line-height: 1.87;
     cursor: pointer;
     letter-spacing: 0.06em;
-    min-width: 200px;
+
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
     
-    border: transparent;
-    border-radius: 4px;
-    padding: 10px 24px;
-    display: inline-block;
+    transition: background-color 250ms var(--time-function);
 }
+
 .hero .btn:hover,
 .hero .btn:focus {
     background-color: var(--hero-btn-hover);
@@ -324,9 +354,27 @@ ul {
 }
 
 .us {
+    position: relative;
     display: flex;
     padding-left: 0;
     justify-content: space-between;
+}
+
+.us-title {
+    position: absolute;
+    bottom: 0;
+    width: 370px;
+    margin-bottom: 0;
+    padding: 27px 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: var(--secondary-color);
+    background-color: var(--background);
 }
 
 .our {
@@ -395,10 +443,15 @@ img {
     display: inline-flex;
     width: 44px;
     height: 44px;
+    cursor: pointer;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     fill: var(--icon-color);
+
+    transition: background-color 250ms var(--time-function),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+                
 }
 
 
@@ -406,7 +459,6 @@ img {
 .social-link:focus {
     background-color: var(--accent-color);
     fill: var(--secondary-color);
-    cursor: pointer;
 }
 
 /* постійні клієнти */
@@ -428,6 +480,9 @@ img {
     cursor: pointer;
     align-items: center;
     justify-content: center;
+
+    transition: fill 250ms var(--time-function),
+    border 250ms var(--time-function);
     
 }
 
@@ -477,6 +532,8 @@ img {
     font-size: 14px;
     line-height: 1.71;
     text-decoration: none;
+
+    transition: color 250ms var(--time-function);
 }
 
 .footer-add:not(:last-child) {
@@ -487,6 +544,8 @@ img {
 .footer-list .item-link {
     color: var(--secondary-text-foot);
     text-decoration: none;
+
+    transition: color 250ms var(--time-function);
 }
 
 .footer-list .link:hover,
@@ -523,6 +582,8 @@ img {
         justify-content: center;
         border-radius: 50%;
         fill: var(--secondary-color);
+
+        transition: background-color 250ms var(--time-function);
 }
 
 .footer-link:hover,
@@ -570,15 +631,21 @@ img {
     text-align: center;
     min-width: 67px;
 
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12),
-                0 1px 2px rgba(0, 0, 0, 0.08),
-                0 3px 1px rgba(0, 0, 0, 0.1);
+    transition: background-color 250ms var(--time-function),
+    color 250ms var(--time-function),
+    box-shadow 250ms var(--time-function);
 }
+
 .button-nav .button:hover,
 .button-nav .button:focus {
     color: var(--secondary-color);
     background-color: var(--accent-color);
+
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.08),
+            0 3px 1px rgba(0, 0, 0, 0.1);
 }
+
 h2 {
     margin-top: 0;
     margin-bottom: 0;
@@ -609,12 +676,15 @@ h2 {
 }
 
 .gallery {
+    overflow: hidden;
     border: 1px solid var(--frame);
     width: 370px;
  }
 
  .gallery-link {
     text-decoration: none;
+
+    transition: box-shadow 250ms var(--time-function);
  }
 
 .gallery-link:nth-last-child(-n + 3) {
@@ -624,11 +694,111 @@ h2 {
     padding: 20px 24px;
 }
 
-.gallery-link:hover,
-.gallery-link:focus {
+.gallery:hover,
+.gallery:focus {
     display: block;
     box-shadow:
      0px 1px 1px rgba(0, 0, 0, 0.12), 
      0px 4px 4px rgba(0, 0, 0, 0.06), 
      1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-img {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    margin-bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 322px;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    
+    color: var(--secondary-color);
+
+    opacity: 0;
+}
+
+.gallery-link:hover .overlay,
+.gallery-link:focus .overlay {
+    opacity: 1;
+}
+
+.gallery-img::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: inline-block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    
+    background-color: var(--overlay);
+    
+    transform: translateY(138%);
+    transition: transform 250ms var(--time-function);
+}
+
+.gallery-img:hover::before,
+.gallery-img:focus::before {
+    opacity: 1;  
+}
+
+.gallery-link:hover .gallery-img::before,
+.gallery-link:focus .gallery-img::before {
+    
+    transform: translateY(0);
+
+}
+
+/* Модальне вікно */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 528px;
+    height: 581px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    background-color: var(--back-color); 
+}
+
+.close-link {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+
+    fill: var(--text-logo);
 }

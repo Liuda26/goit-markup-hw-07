@@ -705,14 +705,14 @@ h2 {
 
 .gallery-img {
     position: relative;
+    overflow: hidden;
 }
 
 .overlay {
     position: absolute;
     margin-bottom: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 63px;
+    left: 24px;
 
     width: 322px;
     font-size: 18px;
@@ -720,13 +720,16 @@ h2 {
     letter-spacing: 0.03em;
     
     color: var(--secondary-color);
-
     opacity: 0;
+
+    transform: translateY(100%);
+    transition: transform 250ms var(--time-function);
 }
 
 .gallery-link:hover .overlay,
 .gallery-link:focus .overlay {
     opacity: 1;
+    transform: translateY(0);
 }
 
 .gallery-img::before {
@@ -741,7 +744,7 @@ h2 {
     
     background-color: var(--overlay);
     
-    transform: translateY(138%);
+    transform: translateY(100%);
     transition: transform 250ms var(--time-function);
 }
 
@@ -752,9 +755,7 @@ h2 {
 
 .gallery-link:hover .gallery-img::before,
 .gallery-link:focus .gallery-img::before {
-    
     transform: translateY(0);
-
 }
 
 /* Модальне вікно */
@@ -765,6 +766,8 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
+
+    transition: opacity 250ms var(--time-function);
 }
 
 .backdrop.is-hidden {
@@ -783,7 +786,7 @@ h2 {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
-    background-color: var(--back-color); 
+    background-color: var(--secondary-color);
 }
 
 .close-link {
@@ -801,4 +804,5 @@ h2 {
     cursor: pointer;
 
     fill: var(--text-logo);
+    background-color: var(--secondary-color);
 }

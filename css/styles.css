@@ -881,13 +881,14 @@ h2 {
 
 .form-field {
     position: relative;
+    margin-bottom: 28px;
     display: flex;
     flex-direction: column;
     padding: 0;
 }
 
-.form-field:not(:last-child) {
-    margin-bottom: 28px;
+.form-field:last-child {
+    margin-bottom: 0px;
 }
 
 .form-input {
@@ -914,7 +915,6 @@ textarea {
     padding: 0;
     margin-bottom: 20px;
 }
-
 
 .comment {
     margin: 0;
@@ -951,39 +951,45 @@ textarea {
     border: 1px solid var(--accent-color);
 }
 
-.slogan {
+.field {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 30px;
-}
-
-.modal-text {
-    display: flex;
-    margin-bottom: 30px;
-    /* margin-left: 7px; */
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
     align-items: center;
     justify-content: center;
-    /* text-align: center; */ 
 }
 
-.checkbox {
-    width: 16px;
-    height: 15px;
+.check-icon {
+    display: inline-block;
     margin-right: 7px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -appearance: none;
-}
-
-/* .modal-text input[type='checkbox'] {
     width: 16px;
     height: 15px;
-} */
 
+    border: 2px solid var(--title-text-color);
+    border-radius: 2px;
+}
+
+.checkbox:checked + .check-icon {
+    background-image: url(../images/icon\ check.svg);
+    border: transparent;
+
+}
+.checkbox {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+} 
 
 .form-btn {
     display: block;
@@ -1008,12 +1014,6 @@ textarea {
 .form-btn:hover,
 .form-btn:focus {
     background-color: var(--hero-btn-hover);
-}
-
-.check {
-    background-color: #2196F3;
-
-    
 }
 
 

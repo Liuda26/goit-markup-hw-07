@@ -1,0 +1,16 @@
+.header {
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-frame);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    padding: 0 15px;
+}
+
+.head-nav {
+    display: flex;
+    align-items: center;
+}

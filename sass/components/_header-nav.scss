@@ -12,11 +12,11 @@
     list-style: none;
 }
 
-&item:not(:last-child) {
+.site-nav__item:not(:last-child) {
     margin-right: 50px;
 }
 
-&link {
+.site-nav__link {
     display: block;
     padding: 32px 0;
 
@@ -27,18 +27,18 @@
     letter-spacing: 0.02em;
     text-decoration: none;
 
-    transition: color 250ms var(--time-function);
+    transition: color 250ms $time-function;
 
     &:hover,
     &:focus {
         color: $accent-color;
-    }
+}
 
-    &current {
+    &.current {
         color: $accent-color;
-    }
+}
 
-    &current::after {
+    &.current::after {
         position: relative;
         display: block;
         content: '';
@@ -49,6 +49,6 @@
         border-radius: 2px;
     
         background-color: $accent-color;
-    }
+}
 }
 

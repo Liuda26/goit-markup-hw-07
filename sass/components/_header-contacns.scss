@@ -7,11 +7,11 @@
     list-style: none;
 }
 
-&item:not(:last-child) {
+.auth-nav__item:not(:last-child) {
     margin-right: 50px;
 }
 
-&link {
+.auth-nav__link {
     display: flex;
     padding: 32px 0;
 
@@ -25,21 +25,21 @@
     align-items: center;
     justify-content: center;
 
-    transition: color 250ms var(--time-function);
+    transition: color 250ms $time-function;
 
     &:hover,
     &:focus {
-    color: $accent-color;
-    }
+        color: $accent-color;
+}
 
 }
 
-&envelope {
+.auth-nav__envelope {
     margin-right: 10px;
     fill: currentColor;
 }
 
-&smartphone {
+.auth-nav__smartphone {
     margin-right: 10px;
     fill: currentColor;
-}
+} 
